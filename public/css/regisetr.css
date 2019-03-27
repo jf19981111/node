@@ -1,0 +1,118 @@
+body {
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 100%;
+    background: url(../images/bg.jpg) no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.clear {
+    clear: both;
+}
+.warp {
+    position: absolute;
+    width: 474px;
+    min-height: 415px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 100px auto;
+}
+.login-head {
+    padding: 2em 0;
+    background: #6D4A70;
+    position: relative;
+}
+.login-head h1 {
+    color: #fff;
+    font-size: 1.5em;
+    text-align: left;
+    margin: 0 23px;
+}
+
+form {
+    padding: 3em 2em;
+    background: #F2F2F2;
+}
+
+form li {
+    border: 2px ridge rgba(187, 185, 189, 0.11);
+    border-radius: 0.3em;
+    list-style: none;
+    margin-bottom: 12px;
+    background: #F0EEF0;
+}
+input[type="text"], input[type="password"], input[type="email"]{
+    font-family: 'Droid Sans', sans-serif;
+    width: 70%;
+    padding: 0.5em 2em 0.5em 1em;
+    color: #B8B8B8;
+    font-size: 20px;
+    outline: none;
+    background: none;
+    border: none;
+}
+.icon {
+    background: url(../images/icons.png) no-repeat 0px 0px;
+    height: 30px;
+    width: 30px;
+    display: block;
+    float: right;
+    margin: 12px 9px 9px 0px;
+}
+.user {
+    background: url(../images/icons.png) no-repeat 7px 1px;
+}
+.lock {
+    background: url(../images/icons.png) no-repeat -22px 1px;
+}
+
+.submit h4 a {
+    float: left;
+    font-size: 16px;
+    color: #999;
+    font-weight: 400;
+    font-family: 'Droid Sans', sans-serif;
+    margin-top: 15px;
+    margin-left: 21px;
+}
+
+.submit h4 a:hover {
+    color: #8D4294;
+}
+
+.tlinks {
+    text-indent: -9999px;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden;
+}
+/*************************/
+
+.submit {
+    padding-top: 3em;
+}
+
+input[type="submit"] {
+    float: left;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 900;
+    outline: none;
+    font-family: 'Raleway', sans-serif;
+    padding: 12px 0px;
+    width: 35%;
+    font-size: 18px;
+    background: #6C496F;
+    border: 2px solid #6C496F;
+    border-radius: 0.5em;
+}
+
+input[type="submit"]:hover {
+    background: #fff;
+    color: #6C496F;
+    border: 2px solid #6C496F;
+}

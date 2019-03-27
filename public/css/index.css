@@ -1,0 +1,198 @@
+body {
+    font-family: Lato,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.72222;
+    color: #34495e;
+    background-color: #fff;
+}
+#warp {
+    min-width: 100%;
+    position: absolute;
+    background: #eff3f6 bottom;
+    min-height: 100%;
+    overflow: hidden;
+}
+/* 左边菜单部分 */
+.leftMeun {
+    position: absolute;
+    box-sizing: border-box;
+    width: 200px;
+    height: 100%;
+    background: #4d5e70 bottom;
+}
+/* 左边菜单栏具体部分 */
+.logo {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 70px;
+    background-color: #354457;
+    font-size: 17px;
+    color: #fff;
+    vertical-align: bottom;
+    text-align: center;
+}
+#personInfor {
+    padding: 10px 5px 10px;
+    margin: 0 5px;
+    color: #b3bcc5;
+    border-bottom: 1px solid #354457;
+    overflow-x: hidden;
+    padding-left: 20px;
+}
+#userName {
+    font-size: 15px!important;
+    padding: 0;
+    margin: 0;
+}
+#personInfor p {
+    font-size: 12px;
+    margin-left: -5px;
+}
+#personInfor a {
+    color: #B3BCC5;
+    text-decoration: underline;
+}
+.meun-title {
+    color: #828e9a;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.leftMeun >div {
+    padding-left: 20px;
+}
+.meun-item-active {
+    background-color: #3d4e60;
+    border-right: 4px solid #647f9d;
+    color: #fff;
+}
+
+.meun-item {
+    line-height: 40px;
+    height: 40px;
+    color: #aab1b7;
+    cursor: pointer;
+}
+.meun-item img {
+    padding-right: 8px;
+    height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+/* 右边部分 */
+
+.rightContent {
+    box-sizing: border-box;
+    float: left;
+    padding-left: 200px;
+    overflow-y: overlay;
+    overflow-x: hidden;
+    clear: both;
+    color: #717592;
+    min-width: 100%;
+    min-height: 500px;
+    background-color: #eff3f6;
+}
+
+/* 右边菜单栏具体部分 */
+.check-div {
+	height: 70px;
+	line-height: 70px;
+	background-color: #fff;
+	padding-left: 30px;
+	min-width: 824px !important;
+	box-sizing: border-box;
+}
+.check-div button {
+	font-size: 12px;
+	font-weight: bold;
+}
+.check-div select {
+	height: 26px;
+	width: 120px!important;
+	display: inline;
+	color: #ccc;
+}
+.tab-content>.active {
+    display: block;
+}
+.check-div input {
+	width: 200px !important;
+	display: inline;
+}
+.tab-pane {
+	color: #9095ab;
+}
+.tableHeader {
+	height: 35px;
+	line-height: 35px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #646987;
+	background-color: #e3e8ee;
+	padding: 0 30px;
+	text-align: left;
+}
+.codeTop {
+	text-align: right;
+}
+.tablebody {
+	margin: 20px 30px;
+    text-align: left;
+}
+.tablebody .row {
+	margin-top: 10px;
+	background-color: #fff;
+	height: 70px;
+	line-height: 70px;
+}
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+/* 系统管理折叠狂 */
+.collapse.in {
+    display: block;
+}
+
+/* footer */
+.footer {
+    float: right;
+    margin-right: 20px;
+}
+footer {
+    padding: 0;
+    font-size: 15px;
+    color: #b7b7b7;
+}
+.pagination li {
+    display: inline-block;
+    margin-right: -3px;
+    word-spacing: normal;
+    vertical-align: middle;
+}
+.gray {
+    color: #b7b7b7;
+    font-weight: normal;
+    padding: 0 10px;
+}
+.pagination li:last-child {
+    margin-right: 0;
+}
+.footer .glyphicon {
+    font-size: 12px;
+    color: #00BDEF;
+    padding: 4px;
+    background-color: #fff;
+    margin-right: 10px;
+}
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+}
