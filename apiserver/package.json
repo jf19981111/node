@@ -1,0 +1,12 @@
+{
+  "name": "apiserver",
+  "version": "1.0.0",
+  "description": ">使用ejs模板来渲染页面数据 （前后端不分离的项目）",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

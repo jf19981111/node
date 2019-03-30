@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="/js/jquery.min.js"></script>
+    <title>后台管理系统</title>
+</head>
+<body>
+    <div id="warp">
+        <div class="leftMeun">
+            <div class="logo">
+                <h1>加菲猫的管理系统</h1>
+            </div>
+            <div id="personInfor">
+                <p><img src="images/avator.png" style="width: 50px;height: 50px;"/></p>
+                <p id="userName">加菲</p>
+                <p><span>983446103@qq.com</span></p>
+                <p>
+                    <a>退出登录</a>
+                </p>
+            </div>
+            <div class="meun-title">账号管理</div>
+            <div id="zy" class="meun-item meun-item-active" href="#sour" aria-controls="sour" role="tab" data-toggle="tab"><img src="images/icon_source.png">资源管理</div>
+            <div id="qx" class="meun-item" href="#char"><img src="images/icon_chara_grey.png">权限管理</div>
+            <div class="meun-item" href="#user"><img src="images/icon_user_grey.png">用户管理</div>
+            <div class="meun-item" href="#chan"><img src="images/icon_change_grey.png">修改密码</div>
+        </div>
+        <div class="rightContent">
+            
+            <div class="table-content">
+            <!-- 资源管理模块 S-->
+                <div role="tabpanel" class="tab-pane active" id="sour">
+                        <div class="check-div form-inline">
+                            <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addSource">添加资源</button>
+                        </div>
+                        <div class="data-div">
+                            <div class="row tableHeader">
+                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
+                                    编码
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    名称
+                                </div>
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                    链接
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    操作
+                                </div>
+                            </div>
+                            <div class="tablebody">
+                                    <div class="row">
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                                1
+                                            </div>
+                                            <div id="topAD" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSystem" aria-expanded="true" aria-controls="collapseOne">
+                                                <span id="topA" class="glyphicon  glyphicon-triangle-bottom  "></span><span>系统管理</span>
+                                            </div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                /admin/system/userlist/software/
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">修改</button>
+                                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSource">删除</button>
+                                            </div>
+                                    </div>
+                                    <!--系统管理折叠狂-->
+                                    <div id="collapseSystem" class="collapse in" aria-expanded="true">
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 levl2 ">
+                                                2
+                                            </div>
+                                            <div id="topBD" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 levl2" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAccount" aria-expanded="true" aria-controls="collapseOne">
+                                                <span onClick="changeB()" id="topB" class="glyphicon glyphicon-triangle-bottom"></span><span>账号管理</span>
+                                            </div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                /rlist/
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">修改</button>
+                                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSource">删除</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1  levl3 ">
+                                                2
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4  levl3">
+                                                <span></span><span>权限管理</span>
+                                            </div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                /admin/system/userlist/software/
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">修改</button>
+                                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSource">删除</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div>
+                </div>
+                 <!--页码块-->
+                 <footer class="footer">
+                        <ul class="pagination">
+                            <li>
+                                <select>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+                                页
+                            </li>
+                            <li class="gray">
+                                共20页
+                            </li>
+                            <li>
+                                <i class="glyphicon glyphicon-menu-left">
+                                </i>
+                            </li>
+                            <li>
+                                <i class="glyphicon glyphicon-menu-right">
+                                </i>
+                            </li>
+                        </ul>
+                </footer>
+                </div>
+               
+            <!-- 资源管理模块 E-->
+            <!-- 权限管理模块 S-->
+            <div role="tabpanel" class="tab-pane" style="display: none" id="char">
+
+                    <div class="check-div">
+                        <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addChar">添加权限</button>
+                    </div>
+                    <div class="data-div">
+                        <div class="row tableHeader">
+                            <div class="col-xs-1 ">
+                                编码
+                            </div>
+                            <div class="col-xs-4">
+                                权限名
+                            </div>
+                            <div class="col-xs-5">
+                                描述
+                            </div>
+                            <div class="col-xs-2">
+                                操作
+                            </div>
+                        </div>
+                        <div class="tablebody">
+                            <div class="row">
+                                <div class="col-xs-1 ">
+                                    1
+                                </div>
+                                <div class="col-xs-4">
+                                </span><span>管理员</span>
+                        </div>
+                        <div class="col-xs-5">
+                            管理员具有超年权限
+                        </div>
+                        <div class="col-xs-2">
+                            <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeChar">修改</button>
+                            <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteChar">删除</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-1 ">
+                            2
+                        </div>
+                        <div class="col-xs-4">
+                            <span>游客</span>
+                        </div>
+                        <div class="col-xs-5">
+                            可以查看信息
+                        </div>
+                        <div class="col-xs-2">
+                            <button class="btn btn-success btn-xs">修改</button>
+                            <button class="btn btn-danger btn-xs">删除</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!--页码块-->
+            <footer class="footer">
+                <ul class="pagination">
+                    <li>
+                        <select>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
+                        页
+                    </li>
+                    <li class="gray">
+                        共20页
+                    </li>
+                    <li>
+                        <i class="glyphicon glyphicon-menu-left">
+                        </i>
+                    </li>
+                    <li>
+                        <i class="glyphicon glyphicon-menu-right">
+                        </i>
+                    </li>
+                </ul>
+            </footer>
+            </div>
+            <!-- 权限管理模块 E--> 
+       </div>
+    </div>  
+    <script>
+        $(function() {
+            $("#topAD").click(function() {
+                $("#topA").toggleClass(" glyphicon-triangle-right");
+                $("#topA").toggleClass(" glyphicon-triangle-bottom");
+            });
+            $("#topBD").click(function() {
+                $("#topB").toggleClass(" glyphicon-triangle-right");
+                $("#topB").toggleClass(" glyphicon-triangle-bottom");
+            });
+            $("#topCD").click(function() {
+                $("#topC").toggleClass(" glyphicon-triangle-right");
+                $("#topC").toggleClass(" glyphicon-triangle-bottom");
+            });
+            $(".toggle-btn").click(function() {
+                $("#leftMeun").toggleClass("show");
+                $("#rightContent").toggleClass("pd0px");
+            })
+            $('.meun-item').click(function(){
+                $(this).addClass('meun-item-active').siblings().removeClass('meun-item-active');
+            })
+            $("#qx").click(function(){
+                
+                $("#char").show()
+                $("#sour").hide()
+            })
+        })
+    </script>  
+</body>
+</html>
