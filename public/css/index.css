@@ -121,6 +121,9 @@ body {
 	width: 200px !important;
 	display: inline;
 }
+.tab-content>.tab-pane {
+    display: none;
+}
 .tab-pane {
 	color: #9095ab;
 }

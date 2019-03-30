@@ -13,24 +13,25 @@
         <div class="login-head">
             <h1>Register Form</h1>			
         </div>
-        <form>
+        <form action="/user/register" method="POST"> 
 			<li>
-				<input type="text" class="text" value="username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}"><a href="#" class=" icon user"></a>
+				<input type="text" class="text" value="username" name="username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}"><a href="#" class=" icon user"></a>
 			</li>
 				<div class="clear"></div>
 			<li>
-				<input type="password" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <a href="#" class="icon lock"></a>
+				<input type="password" name="password" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <a href="#" class="icon lock"></a>
 			</li>
 			<div class="clear"> </div>
 			<li>
-				<input type="email" value="9834461@qq.com" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '9834461@qq.com';}"> <a href="#"></a>
+				<input type="email" name="email" value="9834461@qq.com" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '9834461@qq.com';}"> <a href="#"></a>
 			</li>
 			<div class="clear"> </div>
 			<div class="submit">
-				<input type="submit" onclick="myFunction()" value="Create in" >
+				<input type="submit" id="sub" value="Create in" >
+				<h4><a href="#">已有账号 登录</a></h4>
 						  <div class="clear">  </div>	
 			</div>	
 		</form>
-    </div>
+	</div>
 </body>
 </html>

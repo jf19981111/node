@@ -13,18 +13,18 @@
         <div class="login-head">
             <h1>Login Form</h1>			
         </div>
-        <form>
+        <form action="/user/login" method="POST">
 			<li>
-				<input type="text" class="text" value="username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}"><a href="#" class=" icon user"></a>
+				<input type="text" class="text" name="username" value="username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}"><a href="#" class=" icon user"></a>
 			</li>
 				<div class="clear"></div>
 			<li>
-				<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <a href="#" class="icon lock"></a>
+				<input type="password" name="password" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <a href="#" class="icon lock"></a>
 			</li>
 			<div class="clear"> </div>
 			<div class="submit">
-				<input type="submit" onclick="myFunction()" value="Sign in" >
-				<h4><a href="#">Lost your Password ?</a></h4>
+				<input type="submit" id="sub" value="Sign in" >
+				<h4><a href="/register.html">还未有账号 请注册</a></h4>
 						  <div class="clear">  </div>	
 			</div>	
 		</form>
