@@ -40,7 +40,7 @@
 		$(function(){
 			$("#sub").click(function(){
 				
-				axios.post('http://localhost:3000/api/user',{
+				/* axios.post('http://localhost:3000/api/user',{
 					username : $("[name=username]").val(),
 					password : $("[name=password]").val()
 				}).then(function(res){
@@ -50,7 +50,7 @@
 					} else {
 						alert('注册失败')
 					}
-				})
+				}) */
 				//alert(1)
 				/*$.post('http://localhost:3000/api/user', {
 					username : $("[name=username]").val(),
@@ -64,13 +64,14 @@
 					}
 				})*/
 				
-				/*$.ajax({
+				$.ajax({
 					type:"post",
 					url:"http://localhost:3000/api/user",
-					data : {
+					// 只需要将这里的信息转成 json 格式的字符串
+					data : JSON.stringify({
 						username : $("[name=username]").val(),
 						password : $("[name=password]").val()
-					},
+					}),
 					//dataType : json,
 					headers : {
 						'Content-Type' : 'application/json; chartset=utf-8'
@@ -78,7 +79,7 @@
 					success : function(res){
 						console.log(res)
 					}
-				});*/
+				});
 				
 				
 				
