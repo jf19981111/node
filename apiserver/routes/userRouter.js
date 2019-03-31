@@ -1,5 +1,6 @@
 const express = require('express');
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const UserModel = require('../models/userModel');
 const router = express.Router();
 
@@ -60,9 +61,16 @@ router.route('/user')
                         })
                     } else {
                         if (isOk) {
+                            // 签发一个 token 并且返回给前端
+                            let token = jwt.sign({
+                                username : data.username
+                            },'keyt');
+
+
                             res.send({
                                 code : 0,
-                                msg : '登录成功'
+                                msg : '登录成功',
+                                token : token
                             })
                         } else {
                             res.send({

@@ -44,7 +44,10 @@
 					success : function(res) {
 						//console.log(res)
 						if (res.code === 0 ) {
-							//真正的成功 跳转到首页
+							//真正的登录成功 跳转到首页
+							//将 token 存起来
+							// 使用 localstorage 来存储 token
+							localStorage.setItem('token',res.token)
 							location.href = '/index.html'
 						} else {
 							alert(res.msg)
