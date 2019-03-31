@@ -51,6 +51,7 @@ body {
 #personInfor a {
     color: #B3BCC5;
     text-decoration: underline;
+    display: block;
 }
 .meun-title {
     color: #828e9a;

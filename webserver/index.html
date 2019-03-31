@@ -18,7 +18,7 @@
                 <h1>加菲猫的管理系统</h1>
             </div>
             <div id="personInfor">
-                <p><img src="images/avator.png" style="width: 50px;height: 50px;"/></p>
+                <p><a class=""><img class="avator" src="images/avator.png" style="width: 50px;height: 50px;"/></a></p>
                 <p id="userName">加菲</p>
                 <p><span>983446103@qq.com</span></p>
                 <p>
@@ -256,6 +256,37 @@
                 $("#char").show()
                 $("#sour").hide()
             })
+            
+            //请求当前用户的基本信息
+            
+            // 0. 先从localstorage中取出 token
+            let token = localStorage.getItem('token');
+            if(!token) {
+                alert('用户未登录')
+                location.href = '/login.html'
+            }
+            $.ajax({
+                url : 'http://localhost:3000/api/getUserInfo',
+                method : 'GET',
+                headers : {
+                    //自定义请求头
+                    // X-Access-Token 的值从哪里来
+                    'X-Access-Token' : token
+
+                },
+                success : function(res){
+                   // console.log(res)
+                   if (res.code === 0 ) {
+                       //
+                       $(".avator").attr('src',res.userInfo.avator);
+                       $("#userName").html(res.userInfo.username);
+                   } else {
+                       alert(res.msg)
+                   }
+                }
+            })
+
+
         })
     </script>  
 </body>
