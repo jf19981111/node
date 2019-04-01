@@ -58,3 +58,13 @@ axios.post('http://localhost:3000/api/user',{
 - 首先明白 要更改用户头像 就需要 后台提供接口 去拿到用户的信息 然后渲染在页面上
 - 所以要在登录的时候做操作 拿到 token 但是 要明白 获取用户的信息不需要把密码给渲染出来 所以要把密码过滤掉
 - 这里也要设置头信息 X-Access-Token 
+
+- 就是 使用 multer 模块 这个中间件
+    经过 multer 中间件处理之后 req上有一个 file 属性
+    console.log(req.file)
+    能够得到文件对象了 将这个文件重写 换个名字写入到静态资源托管文件中
+     1. 将文件从 c:\tmp\xxx -> 当前的public\xxx.png
+     这里会有一个 bug 就是当同一个用户 在他的浏览器上面选择同一个图片时候，得到的路径是一样的
+     只需要给图片 const newFileName = new Date().getTime() + '_' + req.file.originalname;
+     加上一个时间戳
+     2. 就是使用form 表单的形式无法设置请求头的 所以使用 ajax 来发请求

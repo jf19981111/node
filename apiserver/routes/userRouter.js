@@ -1,6 +1,10 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const fs = require('fs');
+const path = require('path');
+const multer = require('multer');
+const upload = multer({dest:'c:/tmp'}); //指定文件上传之后的临时目录
 const UserModel = require('../models/userModel');
 const router = express.Router();
 
@@ -100,8 +104,27 @@ router.route('/user')
  * 
  */
 // http://localhost:3000/api/getUserInfo
-router.get('/getUserInfo',(req,res) => {
-    // 0. 获取前端在请求头中传递过来的 X-Access-Token
+router.get('/getUserInfo',tokenVerify(),(req,res) => {
+    //获取 userId
+    let userId = req.userInfo.userId;
+    //查询数据库
+    UserModel.findById(userId,{ password : 0 })
+    .then(data => {
+        if(!data) {
+            res.send({
+                code : -1,
+                msg : '用户信息查询失败，不存在此用户'
+            })
+        } else {
+            //成功查询到用户信息
+            res.send({
+                code : 0,
+                msg : '查询成功',
+                userInfo : data
+            })
+        }
+    })
+   /*  // 0. 获取前端在请求头中传递过来的 X-Access-Token
     let token = req.get('X-Access-Token')
     // 1. 是否存在
     if (!token) {//不存在,那么直接返回没有数据
@@ -135,8 +158,70 @@ router.get('/getUserInfo',(req,res) => {
                     })
             }
         })
-    }
+    } */
 })
+
+
+//修改用户信息
+router.post('/updateUserInfo',tokenVerify(),upload.single('abc'),(req,res) => {
+    //经过 multer 中间件处理之后 req上有一个 file 属性
+    //console.log(req.file)
+    //能够得到文件对象了 将这个文件重写 换个名字写入到静态资源托管文件中
+    // 1. 将文件从 c:\tmp\xxx -> 当前的public\xxx.png
+    const newFileName = new Date().getTime() + '_' + req.file.originalname;
+    const newFilePath = path.resolve(__dirname,'../public',newFileName);
+    //console.log(newFilePath)
+    const fileData = fs.readFileSync(req.file.path);
+    fs.writeFileSync(newFilePath,fileData)
+
+    //因为我们要频繁的使用 获取用户的id 所以我们可以 把获取用户id 做一个中间件来使用
+
+    //获取当前用户的id
+    let userId = req.userInfo.userId;
+
+    //修改数据库
+    UserModel.updateOne({
+        _id : userId
+    },{
+        avator : newFileName,
+        username : req.body.username
+    }).then(data => {
+        res.send({
+            code:0,
+            msg: 'hahaha'
+        })
+    })
+})
+
+
+// 验证 token
+
+function tokenVerify() {
+    // 返回的是验证 token 的中间件函数
+    return (req,res,next) => {
+        // 0. 获取前端在请求头中传递过来的 X-Access-Token
+        let token = req.get('X-Access-Token')
+        // 1. 是否存在
+        if (!token) {//不存在,那么直接返回没有数据
+            res.status(401).send({code: -1,msg : 'token不存在'})
+        } else {//存在
+            // 2. 验证 token 的有效性
+            jwt.verify(token,'keyt',(err,payload) => {
+                // 判断 验证是否 成功
+                if (err) {
+                    //验证失败
+                    res.status(403).send({code: -1,msg : '没有权限'})
+                } else {
+                    //验证成功
+                    //我们可以像别的中间件一样，在req 身上加上一个属性
+                    //取出 payload 中的 userId
+                    req.userInfo = payload;
+                    next();
+                }
+            })
+        }
+    }
+}
 
 
 

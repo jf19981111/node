@@ -12,13 +12,28 @@
     <title>后台管理系统</title>
 </head>
 <body>
+    <div class="cloud">
+        <div class="zoom">
+            <h2>用户信息</h2>
+            <!-- <form action="http://localhost:3000/api/updateUserInfo" method="post" enctype="multipart/form-data"> -->
+                <input type="text" id="cloud_username" name="username" value="张三" />
+                <input type="file" id="avator" name="abc" placeholder="请选择头像" />
+                <img id="avator_img" src="./images/avator.png">
+        
+                <button id="ok">修改</button>
+                <!-- <input type="submit" /> -->
+                <button id="cancel">取消</button>
+            <!-- </form> -->
+        </div>
+        <div class="mask"></div>
+    </div>
     <div id="warp">
         <div class="leftMeun">
             <div class="logo">
                 <h1>加菲猫的管理系统</h1>
             </div>
             <div id="personInfor">
-                <p><a class=""><img class="avator" src="images/avator.png" style="width: 50px;height: 50px;"/></a></p>
+                <p><a class="user"><img class="avator" src="images/avator.png" style="width: 50px;height: 50px;"/></a></p>
                 <p id="userName">加菲</p>
                 <p><span>983446103@qq.com</span></p>
                 <p>
@@ -230,6 +245,7 @@
             <!-- 权限管理模块 E--> 
        </div>
     </div>  
+    <script src="js/jquery.min.js"></script>
     <script>
         $(function() {
             $("#topAD").click(function() {
@@ -277,14 +293,62 @@
                 success : function(res){
                    // console.log(res)
                    if (res.code === 0 ) {
-                       //
-                       $(".avator").attr('src',res.userInfo.avator);
+                       // res.userInfo.avator 这个存储的是文件名
+                       //http://localhost:3000/res.userInfo.avator
+                       var imgSrc = 'http://localhost:3000/' + res.userInfo.avator
+                       $(".avator").attr('src',imgSrc);
                        $("#userName").html(res.userInfo.username);
+                       //console.log($("#userName").html())
+                       //弹窗内容
+                        $("#cloud_username").val(res.userInfo.username)
+                        $("#avaror_img").attr('src',imgSrc)
                    } else {
                        alert(res.msg)
                    }
                 }
             })
+            
+            //弹框处理
+            $(".user").click(function(){
+                $(".cloud").show();
+            })
+            $("#cancel").click(function(){
+                $(".cloud").hide()
+            })
+            $(".mask").click(function(){
+                $(".cloud").hide();
+            })
+
+            // 修改用户信息
+            $("#ok").click(function(){
+                //alert(1)
+                let token = localStorage.getItem('token');
+                var formData = new FormData();
+                //主动添加要传给后台的参数
+                formData.append('username',$('[name=username]').val())
+                //在 Dom 对象上 input框 type 类型为 file 属性的 默认有一个 files属性 是一个对象 需要拿到他的第0给元素
+                formData.append('abc',$('#avator').get(0).files[0])
+                $.ajax({
+                    url : 'http://localhost:3000/api/updateUserInfo',
+                    method : 'post',
+                    //有文件的data 不能如下这样写 需要使用 FormData
+                    //data : {}
+                    data : formData,
+                    processData : false, //上传文件，需要将这个选项设置为false
+                    contentType : false,//上传文件，需要将这个选项设置为false
+                    headers : {
+                        'X-Access-Token' : token
+                    },
+                    success : function(res) {
+                        if(res.code === 0) {
+                            alert('上传成功');
+                            location.reload();
+                        }
+                        console.log(res);
+                    }
+                })
+            })
+
 
 
         })

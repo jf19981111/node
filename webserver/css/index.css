@@ -5,6 +5,32 @@ body {
     color: #34495e;
     background-color: #fff;
 }
+/* 弹出框 */
+.cloud {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: none;
+}
+.cloud .mask {
+    background: rgba(0, 0, 0, 0.3);
+    height: 100%;
+}
+.cloud .zoom {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    width: 380px;
+    margin-left: -190px;
+    z-index: 2;
+    background: #ccc;
+    border: 1px solid tomato;
+    border-radius: 4px;
+    box-shadow: 0 0 4px #646987;
+}
 #warp {
     min-width: 100%;
     position: absolute;
