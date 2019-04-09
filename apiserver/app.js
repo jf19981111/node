@@ -35,63 +35,63 @@ app.use(express.urlencoded({extended : false}));
 app.use(express.static(path.resolve(__dirname,'./public')));
 
 // 上传多个文件 upload.fileds
-app.post('/upload',upload.fields([
-    {name : 'abc',maxCount : 2},
-    {name : 'efg',maxCount : 2}
-]),(req,res) => {
-    console.log(req.body)
-    console.log(req.files);
-    /**
-     * {
-        abc:
-        [ { fieldname: 'abc',
-            originalname: 'timg (1).jpg',
-            encoding: '7bit',
-            mimetype: 'image/jpeg',
-            destination: 'c/tmp',
-            filename: 'c48ab95f6b2e5ec579c94396acbf7ca3',
-            path: 'c\\tmp\\c48ab95f6b2e5ec579c94396acbf7ca3',
-            size: 53271 } ],
-        efg:
-        [ { fieldname: 'efg',
-            originalname: 'timg.jpg',
-            encoding: '7bit',
-            mimetype: 'image/jpeg',
-            destination: 'c/tmp',
-            filename: '7a13046ee38f80145d217fc265713749',
-            path: 'c\\tmp\\7a13046ee38f80145d217fc265713749',
-            size: 52852 } ] 
-        }
+// app.post('/upload',upload.fields([
+//     {name : 'abc',maxCount : 2},
+//     {name : 'efg',maxCount : 2}
+// ]),(req,res) => {
+//     console.log(req.body)
+//     console.log(req.files);
+//     /**
+//      * {
+//         abc:
+//         [ { fieldname: 'abc',
+//             originalname: 'timg (1).jpg',
+//             encoding: '7bit',
+//             mimetype: 'image/jpeg',
+//             destination: 'c/tmp',
+//             filename: 'c48ab95f6b2e5ec579c94396acbf7ca3',
+//             path: 'c\\tmp\\c48ab95f6b2e5ec579c94396acbf7ca3',
+//             size: 53271 } ],
+//         efg:
+//         [ { fieldname: 'efg',
+//             originalname: 'timg.jpg',
+//             encoding: '7bit',
+//             mimetype: 'image/jpeg',
+//             destination: 'c/tmp',
+//             filename: '7a13046ee38f80145d217fc265713749',
+//             path: 'c\\tmp\\7a13046ee38f80145d217fc265713749',
+//             size: 52852 } ] 
+//         }
 
-     * 
-     * 
-     * 
-     */
+//      * 
+//      * 
+//      * 
+//      */
 
- /*    let filesUrl = []
+//  /*    let filesUrl = []
 
-    for(var i = 0; i < req.files.length; i++) {
-        let curFile = req.files[i];
+//     for(var i = 0; i < req.files.length; i++) {
+//         let curFile = req.files[i];
 
-        //需要对当前的文件 做转存 存到 静态资源托管的文件夹中
-        let newFileName = new Date().getTime() + '_' + curFile.originalname;
-        let newFilePath = path.resolve(__dirname,'./public',newFileName)
-        let fileData = fs.readFileSync(curFile.path);
-        fs.writeFileSync(newFilePath,fileData);
+//         //需要对当前的文件 做转存 存到 静态资源托管的文件夹中
+//         let newFileName = new Date().getTime() + '_' + curFile.originalname;
+//         let newFilePath = path.resolve(__dirname,'./public',newFileName)
+//         let fileData = fs.readFileSync(curFile.path);
+//         fs.writeFileSync(newFilePath,fileData);
 
-        filesUrl.push(`http://localhost:3000/${ newFileName}`)
-    }
+//         filesUrl.push(`http://localhost:3000/${ newFileName}`)
+//     }
 
-    res.send({
-        code : 0,
-        msg : '上传文件成功',
-        // imgUrl : 'http://localhost:3000/' + newFileName
-        filesUrl : filesUrl
-    }) */
-})
+//     res.send({
+//         code : 0,
+//         msg : '上传文件成功',
+//         // imgUrl : 'http://localhost:3000/' + newFileName
+//         filesUrl : filesUrl
+//     }) */
+// })
 
 
-/* // 上传 多个文件 Array 使用
+ // 上传 多个文件 Array 使用
 app.post('/upload',upload.array('abc',2),(req,res) => {
     console.log(req.body)
     console.log(req.files);
@@ -116,7 +116,7 @@ app.post('/upload',upload.array('abc',2),(req,res) => {
         // imgUrl : 'http://localhost:3000/' + newFileName
         filesUrl : filesUrl
     })
-}) */
+}) 
 
 
 

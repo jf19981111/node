@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form action="http://localhost:3000/upload" method="POST" enctype="multipart/form-data"> -->
+        <input type="file" name="abc" multiple>
+        <input type="file" name="efg" multiple>
+        <input type="text" name="username" id="">
+        <input id="btn" type="submit">
+    <!-- </form> -->
+
+        <script src="./js/jquery.min.js"></script>
+        <script>
+            
+            $(function(){
+
+                $("#btn").click(function(){
+                    
+                    var formData = new FormData();
+                    formData.append('abc',$('[name="abc"]').get(0).files)
+                    formData.append('username',$('[name="username"]').val())
+                    $.ajax({
+                        url : 'http://localhost:8080/api/upload',
+                        method : 'POST',
+                        data : formData,
+                        processData : false,
+                        contentType : false,
+                        success : function (res) {
+                            console.log(res)
+                        }
+                    })
+
+                })
+
+
+            })
+
+
+        </script>
+</body>
+</html>
